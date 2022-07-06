@@ -1,17 +1,9 @@
 <template>
-  <div class="home">
-    <HelloWorld />
-  </div>
+  <h1>Tu znajdziesz takie blogi jakich jeszcze nie widziałeś</h1>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "HomeView",
-  components: {
-    HelloWorld,
-  },
 };
 </script>

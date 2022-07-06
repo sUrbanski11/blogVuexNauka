@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <MainNavBar />
+    <router-view />
   </div>
 </template>
 
+<script>
+import MainNavBar from "./components/MainNavBar.vue";
+export default {
+  components: { MainNavBar },
+  created() {
+    this.$store.dispatch("fetchBlogs");
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -21,12 +27,12 @@ nav {
   padding: 30px;
 }
 
-nav a {
+a {
   font-weight: bold;
   color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
+a.router-link-exact-active {
   color: #42b983;
 }
 </style>
