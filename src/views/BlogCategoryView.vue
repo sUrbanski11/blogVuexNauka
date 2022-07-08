@@ -1,7 +1,5 @@
 <template>
-  <div>
     <CategoryList />
-  </div>
 </template>
 
 <script>

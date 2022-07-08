@@ -10,7 +10,7 @@ import MainNavBar from "./components/MainNavBar.vue";
 export default {
   components: { MainNavBar },
   created() {
-    this.$store.dispatch("fetchBlogs");
+    this.$store.dispatch("blog/fetchBlogs");
   },
 };
 </script>

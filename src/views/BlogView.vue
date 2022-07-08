@@ -1,7 +1,11 @@
 <template>
   <div>
     <h2>{{ $route.params.category }}</h2>
-    <p v-for="p in showBlogs" :key="p">{{ p }}</p>
+    <div v-if="showBlogs">
+      <p v-for="p in showBlogs.blogs" :key="p">{{ p }}</p>
+    </div>
+    <p v-else>Brak powiązanych blogów</p>
+    
   </div>
 </template>
 
@@ -9,7 +13,7 @@
 export default {
   computed: {
     showBlogs() {
-      return this.$store.getters.getBlogs(this.$route.params.category).blogs;
+      return this.$store.getters["blog/getBlogs"](this.$route.params.category);
     },
   },
 };

@@ -1,9 +1,7 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import axios from "axios";
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default{
+  namespaced:true,
   state: {
     blogs: [],
   },
@@ -17,9 +15,13 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchBlogs(state) {
-      const b = await (await fetch("https://mocki.io/v1/13d91553-5dd8-4280-9999-73ba0baaacae")).json();
-      state.commit("setBlogs", b);
+      try{
+        const blogs = await axios.get("https://mocki.io/v1/13d91553-5dd8-4280-9999-73ba0baaacae")
+        state.commit("setBlogs", blogs.data);
+      }catch(error){
+        console.log(error)
+      }
     },
   },
   modules: {},
-});
+};
