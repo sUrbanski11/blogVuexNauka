@@ -1,20 +1,14 @@
 <template>
   <div>
-    <h2>{{ $route.params.category }}</h2>
-    <div v-if="showBlogs">
-      <p v-for="p in showBlogs.blogs" :key="p">{{ p }}</p>
-    </div>
-    <p v-else>Brak powiązanych blogów</p>
-    
+    <p>bloggggg</p>
+    <comment-list/>
   </div>
 </template>
 
 <script>
+import CommentList from "./../components/CommentsList.vue"
 export default {
-  computed: {
-    showBlogs() {
-      return this.$store.getters["blog/getBlogs"](this.$route.params.category);
-    },
-  },
-};
+  name:"BlogView",
+  components:{CommentList}
+}
 </script>
